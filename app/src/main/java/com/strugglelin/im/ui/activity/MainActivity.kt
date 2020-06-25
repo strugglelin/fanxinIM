@@ -1,7 +1,8 @@
-package com.strugglelin.im
+package com.strugglelin.im.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.strugglelin.im.R
 
 class MainActivity : AppCompatActivity() {
 
