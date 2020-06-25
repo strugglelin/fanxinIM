@@ -12,7 +12,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     // 返回一个布局资源的id
-    internal abstract fun layoutResId() : Int
+    abstract fun layoutResId() : Int
 
     // 初始化数据
     open fun init(){
