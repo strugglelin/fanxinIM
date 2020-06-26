@@ -3,9 +3,11 @@ package com.strugglelin.im.ui.fragment
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.strugglelin.im.R
 import com.strugglelin.im.adapter.ContactListAdapter
 import com.strugglelin.im.contract.ContactContract
+import com.strugglelin.im.present.ContactPresenter
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.header.*
 import org.jetbrains.anko.toast
@@ -18,6 +20,8 @@ import org.jetbrains.anko.toast
 
 class ContactFragment : BaseFragment(), ContactContract.View {
 
+    val presenter = ContactPresenter(this);
+
     override fun init() {
         headerTitle.text = getString(R.string.contact)
         add.visibility = View.VISIBLE
@@ -25,6 +29,11 @@ class ContactFragment : BaseFragment(), ContactContract.View {
         swipeRefreshLayout.apply {
             setColorSchemeColors(ContextCompat.getColor(context, R.color.qq_blue))
             isRefreshing = true
+            setOnRefreshListener(object :SwipeRefreshLayout.OnRefreshListener{
+                override fun onRefresh() {
+                    presenter.loadContacts()
+                }
+            })
         }
 
         recyclerView.apply {
@@ -32,6 +41,8 @@ class ContactFragment : BaseFragment(), ContactContract.View {
             layoutManager = LinearLayoutManager(context)
             adapter = ContactListAdapter(context)
         }
+
+        presenter.loadContacts()
     }
 
     override fun onLoadContactsSuccess() {
