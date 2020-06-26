@@ -1,6 +1,6 @@
 package com.strugglelin.im.contract
 
-class LoginContract{
+interface LoginContract{
 
     interface Presenter : BasePresenter{
         fun login (userName:String,passWord:String)

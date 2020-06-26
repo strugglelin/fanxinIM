@@ -45,4 +45,6 @@ dependencies {
 
     implementation project(':fanxinlibrary')
 
+    implementation project(':bmoblibrary')
+
 }

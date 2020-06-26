@@ -1,1 +1,1 @@
-include ':app', ':fanxinlibrary'
+include ':app', ':fanxinlibrary', ':bmoblibrary'

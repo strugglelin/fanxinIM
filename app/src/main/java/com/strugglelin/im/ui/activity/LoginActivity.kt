@@ -3,6 +3,7 @@ package com.strugglelin.im.ui.activity
 import android.Manifest
 import android.content.pm.PackageManager
 import android.view.KeyEvent
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -21,6 +22,12 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         login.setOnClickListener {
             login()
         }
+
+        newUser.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity<RegisterActivity>()
+            }
+        })
 
         password.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
@@ -81,7 +88,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun onLoggedInInSuccess() {
         // 隐藏进度条
-        dissmissProgress()
+        dismissProgress()
         // 进入主界面
         startActivity<MainActivity>()
         // 退出LoginActivity
@@ -90,7 +97,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun onLoggedInFailed() {
         // 隐藏进度条
-        dissmissProgress()
+        dismissProgress()
         // 弹出toast
         toast(R.string.login_failed)
     }
