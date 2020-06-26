@@ -1,13 +1,20 @@
 package com.strugglelin.im.ui.activity
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.os.Bundle
+import android.os.ResultReceiver
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity : AppCompatActivity() {
 
     val progressDialog by lazy {
         ProgressDialog(this)
+    }
+
+    val inputMethordManage by lazy {
+        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,4 +38,9 @@ abstract class BaseActivity : AppCompatActivity() {
     fun dissmissProgress(){
         progressDialog.dismiss()
     }
+
+    fun hideSoftKeyBoard(){
+        inputMethordManage.hideSoftInputFromWindow(currentFocus.windowToken,0)
+    }
+
 }
