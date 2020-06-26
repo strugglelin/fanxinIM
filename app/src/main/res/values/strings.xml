@@ -10,7 +10,7 @@
     <string name="permission_denied">权限被拒绝</string>
     <string name="message">消息</string>
     <string name="contact">联系人</string>
-    <string name="dynamic">动态</string>
+    <string name="dynamic">我的</string>
     <string name="logout">退(%s)出</string>
     <string name="logouting">正在退出...</string>
     <string name="logout_failed">退出失败</string>

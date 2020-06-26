@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity() {
 
     override fun init() {
-        bottomBar.setOnTabReselectListener { 
+        bottomBar.setOnTabSelectListener {
             tabId ->
             val beginTransaction = supportFragmentManager.beginTransaction()
             beginTransaction.replace(R.id.fragment_frame, FragmentFactory.instance.getFragment(tabId)!!)
