@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.cardview.widget.CardView
 import com.strugglelin.im.R
+import com.strugglelin.im.bean.Contact
+import kotlinx.android.synthetic.main.view_contact_item.view.*
 
 /**
  *  @author strugglelin
@@ -16,4 +18,13 @@ class ContactListItemView (context: Context,attrs: AttributeSet?=null) : CardVie
     init {
         View.inflate(context,R.layout.view_contact_item,this)
     }
+
+    fun bindView(contact: Contact){
+        if(contact.showFirstLetter){
+            firstLetter.visibility = View.VISIBLE
+            firstLetter.text = contact.firstLetter.toString()
+        }else firstLetter.visibility = View.INVISIBLE
+        userName.text = contact.userName
+    }
+
 }

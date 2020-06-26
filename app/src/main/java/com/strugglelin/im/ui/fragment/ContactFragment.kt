@@ -8,8 +8,10 @@ import com.strugglelin.im.R
 import com.strugglelin.im.adapter.ContactListAdapter
 import com.strugglelin.im.contract.ContactContract
 import com.strugglelin.im.present.ContactPresenter
+import com.strugglelin.im.ui.activity.AddFriendActivity
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.header.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 /**
@@ -26,6 +28,10 @@ class ContactFragment : BaseFragment(), ContactContract.View {
         headerTitle.text = getString(R.string.contact)
         add.visibility = View.VISIBLE
 
+        add.setOnClickListener{
+            context?.startActivity<AddFriendActivity>()
+        }
+
         swipeRefreshLayout.apply {
             setColorSchemeColors(ContextCompat.getColor(context, R.color.qq_blue))
             isRefreshing = true
@@ -39,7 +45,7 @@ class ContactFragment : BaseFragment(), ContactContract.View {
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)
-            adapter = ContactListAdapter(context)
+            adapter = ContactListAdapter(context,presenter.userContactList)
         }
 
         presenter.loadContacts()
