@@ -1,7 +1,7 @@
 package com.strugglelin.fanxinlibrary
 
 import android.app.Application
-import android.content.Context
+import com.hyphenate.EMCallBack
 import com.hyphenate.chat.EMClient
 import com.hyphenate.chat.EMOptions
 
@@ -26,4 +26,7 @@ object IMCore {
 
     fun isLoggedIn(): Boolean = EMClient.getInstance().isConnected && EMClient.getInstance().isLoggedInBefore
 
+    fun login(userName:String,passWord:String,callBack: EMCallBack){
+        EMClient.getInstance().login(userName,passWord,callBack)
+    }
 }
