@@ -18,7 +18,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
         Handler()
     }
 
-    override fun layoutResId(): Int = R.layout.activity_splash
+    override fun getLayoutResId(): Int = R.layout.activity_splash
 
     override fun init() {
         presenter.checkLoginStatus()
@@ -34,5 +34,6 @@ class SplashActivity : BaseActivity(), SplashContract.View {
 
     override fun onLoggedIn() {
         startActivity<MainActivity>()
+        finish()
     }
 }

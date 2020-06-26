@@ -21,6 +21,5 @@ abstract class BaseFragment:Fragment(){
     abstract fun getLayoutResId(): Int
 
     // 初始化数据
-    open fun init() {
-    }
+    open fun init() {}
 }

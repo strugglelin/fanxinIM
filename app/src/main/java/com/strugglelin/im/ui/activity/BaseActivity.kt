@@ -3,7 +3,6 @@ package com.strugglelin.im.ui.activity
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
-import android.os.ResultReceiver
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 
@@ -19,12 +18,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutResId())
+        setContentView(getLayoutResId())
         init()
     }
 
     // 返回一个布局资源的id
-    abstract fun layoutResId() : Int
+    abstract fun getLayoutResId() : Int
 
     // 初始化数据
     open fun init(){

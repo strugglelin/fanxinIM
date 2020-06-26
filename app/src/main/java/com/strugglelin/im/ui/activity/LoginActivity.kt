@@ -102,6 +102,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         toast(R.string.login_failed)
     }
 
-    override fun layoutResId(): Int = R.layout.activity_login
+    override fun getLayoutResId(): Int = R.layout.activity_login
 
 }

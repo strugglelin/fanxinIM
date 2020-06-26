@@ -65,5 +65,5 @@ class RegisterActivity : BaseActivity(), RegisterContract.View {
         dismissProgress()
         toast(R.string.user_already_exist)
     }
-    override fun layoutResId(): Int = R.layout.activity_register
+    override fun getLayoutResId(): Int = R.layout.activity_register
 }
