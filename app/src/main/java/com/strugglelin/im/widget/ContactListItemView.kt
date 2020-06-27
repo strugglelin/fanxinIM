@@ -23,7 +23,7 @@ class ContactListItemView (context: Context,attrs: AttributeSet?=null) : Relativ
         if(contact.showFirstLetter){
             firstLetter.visibility = View.VISIBLE
             firstLetter.text = contact.firstLetter.toString()
-        }else firstLetter.visibility = View.INVISIBLE
+        }else firstLetter.visibility = View.GONE
         userName.text = contact.userName
     }
 
