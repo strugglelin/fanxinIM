@@ -2,6 +2,7 @@ package com.strugglelin.im.bean.db
 
 import android.app.Application
 import android.database.sqlite.SQLiteDatabase
+import com.strugglelin.im.DefaultApplication
 import org.jetbrains.anko.db.*
 import java.security.PrivateKey
 
@@ -10,7 +11,7 @@ import java.security.PrivateKey
  *  @date 2020/6/27
  *  description:
  */
-class DatabaseHelper(context:Application) :ManagedSQLiteOpenHelper(context,NAME,null,VERSION){
+class DatabaseHelper(context:Application = DefaultApplication.instance) :ManagedSQLiteOpenHelper(context,NAME,null,VERSION){
 
     companion object {
         val NAME = "im.db"

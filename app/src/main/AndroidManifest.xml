@@ -14,8 +14,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:replace="android:allowBackup">
-        <activity android:name=".ui.activity.MainActivity">
-
+        <activity
+                android:name=".ui.activity.MainActivity"
+                android:launchMode="singleTask">
         </activity>
 
         <activity android:name=".ui.activity.SplashActivity"
