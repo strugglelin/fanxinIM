@@ -41,33 +41,15 @@ class ContactFragment : BaseFragment(), ContactContract.View {
     }
 
     override fun init() {
-        headerTitle.text = getString(R.string.contact)
-        add.visibility = View.VISIBLE
-
-        add.setOnClickListener {
-            context?.startActivity<AddFriendActivity>()
-        }
-
-        swipeRefreshLayout.apply {
-            setColorSchemeColors(ContextCompat.getColor(context, R.color.qq_blue))
-            isRefreshing = true
-            setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
-                override fun onRefresh() {
-                    presenter.loadContacts()
-                }
-            })
-        }
-
-        recyclerView.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(context)
-            adapter = ContactListAdapter(context, presenter.userContactList)
-        }
-
+        initHeader()
+        initSwipeRefreshLayout()
+        initRecyclerView()
+        initSlideBar()
         EMClient.getInstance().contactManager().setContactListener(contactListener)
-
         presenter.loadContacts()
+    }
 
+    private fun initSlideBar() {
         slideBar.onSectionChangeListener = object : SlideBar.OnSectionChangeListener {
             override fun onSectionChange(firstLetter: String) {
                 section.visibility = View.VISIBLE
@@ -80,6 +62,34 @@ class ContactFragment : BaseFragment(), ContactContract.View {
             override fun onSlideFinish() {
                 section.visibility = View.GONE
             }
+        }
+    }
+
+    private fun initRecyclerView() {
+        recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(context)
+            adapter = ContactListAdapter(context, presenter.userContactList)
+        }
+    }
+
+    private fun initSwipeRefreshLayout() {
+        swipeRefreshLayout.apply {
+            setColorSchemeColors(ContextCompat.getColor(context, R.color.qq_blue))
+            isRefreshing = true
+            setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+                override fun onRefresh() {
+                    presenter.loadContacts()
+                }
+            })
+        }
+    }
+
+    private fun initHeader() {
+        headerTitle.text = getString(R.string.contact)
+        add.visibility = View.VISIBLE
+        add.setOnClickListener {
+            context?.startActivity<AddFriendActivity>()
         }
     }
 
