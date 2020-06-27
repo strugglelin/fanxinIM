@@ -52,8 +52,8 @@ class ContactFragment : BaseFragment(), ContactContract.View {
     }
 
     override fun onLoadContactsSuccess() {
-        swipeRefreshLayout.isRefreshing = false
-        recyclerView.adapter?.notifyDataSetChanged()
+        swipeRefreshLayout?.isRefreshing = false
+        recyclerView?.adapter?.notifyDataSetChanged()
     }
 
     override fun onLoadContactFailed() {

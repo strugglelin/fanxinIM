@@ -1,7 +1,5 @@
 package com.strugglelin.im.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.strugglelin.im.R
 import com.strugglelin.im.factory.FragmentFactory
 import kotlinx.android.synthetic.main.activity_main.*

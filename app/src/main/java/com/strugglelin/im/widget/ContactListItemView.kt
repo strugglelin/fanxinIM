@@ -3,7 +3,7 @@ package com.strugglelin.im.widget
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import androidx.cardview.widget.CardView
+import android.widget.RelativeLayout
 import com.strugglelin.im.R
 import com.strugglelin.im.bean.Contact
 import kotlinx.android.synthetic.main.view_contact_item.view.*
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.view_contact_item.view.*
  *  @date 2020/6/26
  *  description:
  */
-class ContactListItemView (context: Context,attrs: AttributeSet?=null) : CardView(context,attrs){
+class ContactListItemView (context: Context,attrs: AttributeSet?=null) : RelativeLayout(context,attrs){
 
     init {
         View.inflate(context,R.layout.view_contact_item,this)

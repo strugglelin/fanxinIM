@@ -21,6 +21,8 @@ class ContactPresenter(val view:ContactContract.View):ContactContract.Presenter{
                 val userContacts = EMClient.getInstance().contactManager().allContactsFromServer
                 // 根据首字母排序
                 userContacts.sortBy { it[0] }
+                // 联系人列表
+                userContactList.clear()
                 userContacts.forEachIndexed() { index,s->
                     // 判断是否显示首字符
                     val showFirstLetter = index==0 || s[0]!= userContacts[index-1][0]
