@@ -51,7 +51,6 @@ class DefaultApplication :Application(){
     }
 
     private fun showNotification(p0: MutableList<EMMessage>?) {
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         p0?.forEach {
             var contentText = getString(R.string.no_text_message)
             if (it.type == EMMessage.Type.TXT){
@@ -71,6 +70,7 @@ class DefaultApplication :Application(){
                 .smallIcon(R.mipmap.ic_contact)
                 .pendingIntent(pendingIntent)
                 .showNotification(this)
+//            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 //            val notification = Notification.Builder(this)
 //                .setContentTitle(getString(R.string.receive_new_message))
 //                .setContentText(contentText)

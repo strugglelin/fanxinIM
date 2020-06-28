@@ -8,7 +8,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.strugglelin.im.R
-import com.strugglelin.im.util.NotificationUtil
 
 /**
  *  @author strugglelin
@@ -123,7 +122,7 @@ class NotificationFactory {
 
         // 这里必须设置chanenelId,要不然该通知在8.0手机上，不能正常显示
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationUtil.createChannelId(context, groupId, groupName, channelId, channelName)
+            createChannelId(context, groupId, groupName, channelId, channelName)
             builder.setChannelId(channelId)
         }
 
