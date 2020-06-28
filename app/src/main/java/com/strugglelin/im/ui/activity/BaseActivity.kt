@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import com.strugglelin.im.util.ActivityCollector
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -19,7 +20,13 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutResId())
+        ActivityCollector.addActivity(this);
         init()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ActivityCollector.removeActivity(this)
     }
 
     // 返回一个布局资源的id

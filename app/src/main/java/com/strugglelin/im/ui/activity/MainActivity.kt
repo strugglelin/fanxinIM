@@ -7,6 +7,7 @@ import com.hyphenate.chat.EMMessage
 import com.strugglelin.fanxinlibrary.adapter.EMMessageListenerAdapter
 import com.strugglelin.im.R
 import com.strugglelin.im.factory.FragmentFactory
+import com.strugglelin.im.util.ActivityCollector
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
@@ -34,8 +35,8 @@ class MainActivity : BaseActivity() {
             override fun onDisconnected(p0: Int) {
                 if (p0 == EMError.USER_LOGIN_ANOTHER_DEVICE){
                     //发生多设备登陆，跳转到登陆界面
+                    ActivityCollector.finishAll()
                     startActivity<LoginActivity>()
-                    finish()
                 }
             }
 

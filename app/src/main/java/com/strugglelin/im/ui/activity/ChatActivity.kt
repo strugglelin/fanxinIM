@@ -93,7 +93,7 @@ class ChatActivity : BaseActivity(), ChatContract.View {
 
             override fun afterTextChanged(p0: Editable?) {
                 //如果用户输入的文本长度大于0，发送按钮enable
-                send.isEnabled = !p0.isNullOrEmpty() || p0.toString().trim().length == 0
+                send.isEnabled = !p0.isNullOrEmpty() && p0.toString().trim().length > 0
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
