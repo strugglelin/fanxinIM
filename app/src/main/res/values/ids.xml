@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="tab_conversation" />
+    <item type="id" name="tab_contacts"/>
+    <item type="id" name="tab_dynamic"/>
+</resources>
