@@ -3,7 +3,6 @@ package com.strugglelin.im
 import android.app.*
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.media.AudioManager
 import android.media.SoundPool
 import com.hyphenate.chat.EMClient

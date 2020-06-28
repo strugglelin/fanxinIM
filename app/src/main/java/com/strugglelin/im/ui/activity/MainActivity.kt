@@ -35,8 +35,8 @@ class MainActivity : BaseActivity() {
             override fun onDisconnected(p0: Int) {
                 if (p0 == EMError.USER_LOGIN_ANOTHER_DEVICE){
                     //发生多设备登陆，跳转到登陆界面
-                    ActivityCollector.finishAll()
                     startActivity<LoginActivity>()
+                    ActivityCollector.finishAll()
                 }
             }
 

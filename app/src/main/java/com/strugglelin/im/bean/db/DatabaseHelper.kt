@@ -4,7 +4,6 @@ import android.app.Application
 import android.database.sqlite.SQLiteDatabase
 import com.strugglelin.im.DefaultApplication
 import org.jetbrains.anko.db.*
-import java.security.PrivateKey
 
 /**
  *  @author strugglelin

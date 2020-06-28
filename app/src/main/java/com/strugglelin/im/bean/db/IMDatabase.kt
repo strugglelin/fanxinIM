@@ -2,7 +2,6 @@ package com.strugglelin.im.bean.db
 
 import com.strugglelin.im.extentions.toVarargArray
 import org.jetbrains.anko.db.MapRowParser
-import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 
